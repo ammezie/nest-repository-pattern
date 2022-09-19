@@ -1,8 +1,8 @@
 import { Inject } from '@nestjs/common';
 import Post from 'src/post/post.model';
-import PostRepositoryInterface from './PostRepositoryInterface';
+import RepositoryInterface from './RepositoryInterface';
 
-export default class KnexPostRepository implements PostRepositoryInterface {
+export default class KnexPostRepository implements RepositoryInterface<Post> {
   constructor(@Inject(Post) private readonly postModel: typeof Post) {}
 
   async all(): Promise<Post[]> {
